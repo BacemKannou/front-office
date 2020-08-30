@@ -1,17 +1,7 @@
 <ul> 
   <li *ngFor="let product of products "  class="list-group-item">
     
-    <a (click)="onClickProduct(product)">{{product.productName}}</a>
+    <a style="cursor: pointer;" (click)="onClickProduct(product)">{{product.productName}}</a>
   
   </li> 
 </ul>
-<!--
-<ul> 
-    <li class="list-group-item">id :{{product.id}}</li> 
-    <li class="list-group-item">nom du produit :{{product.productName}}</li> 
-    <li class="list-group-item">catégorie :{{product.category.name}}</li> 
-    
-  </ul>
-
-  <div>{{c}}</div>>
--->

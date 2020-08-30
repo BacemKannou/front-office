@@ -1,3 +1,14 @@
-<p>
-  product-details works!
-</p>
+
+
+<table class="table table-strip" *ngIf="product">
+    <tr>
+      <th>Product Id</th>
+      <th>Product details</th>
+    </tr>
+    
+    <tr>
+      <td>{{product.id}}</td>
+      <td>{{product.productName}}</td>
+    </tr>
+  </tbody>
+</table>

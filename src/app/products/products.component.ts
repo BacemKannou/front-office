@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from 'selenium-webdriver/http';
-import { ProductService } from '../product.service';
-import { Product } from '../models/product';
-import { Observable } from 'rxjs';
-import { PRODUCTS } from '../mocks/mock_products';
-import { error } from 'util';
 import { Router } from '@angular/router';
+import { Product } from '../models/product';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-products',
@@ -15,12 +11,13 @@ import { Router } from '@angular/router';
 export class ProductsComponent implements OnInit {
   products;
   product;
-  a:number =0.03;
-  b:number =0.02;
-  c:number;
   
 
-  constructor(private productService : ProductService , private router: Router) { }
+  constructor(private productService : ProductService , private router: Router) {
+      router.events.subscribe(event=>{
+
+      })
+   }
     getAllProducts(){
       this.productService.getAllProducts().subscribe(response => 
         {
@@ -38,7 +35,6 @@ export class ProductsComponent implements OnInit {
       this.productService.getAllProducts().subscribe(response => 
         {
           this.products = response;
-          this.c=this.a - this.b;
         },
         err=> {
           console.log(err);
