@@ -1,6 +1,6 @@
 import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { ProductService } from '../product.service';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-product-details',
@@ -13,7 +13,7 @@ OnChanges,
 DoCheck,
 AfterContentInit,
 AfterContentChecked,
-AfterViewInit,
+AfterViewInit, 
 AfterViewChecked, 
 OnDestroy {
 

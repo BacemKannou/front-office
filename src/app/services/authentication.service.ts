@@ -2,15 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
-
-const optionRequete = {
-  headers: new HttpHeaders({ 
-    'Access-Control-Allow-Origin':'*'
-  })
-};
-
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -22,13 +13,19 @@ export class AuthenticationService {
   jwt: string;
   username: string;
   roles: Array<string>;
-
-  
+  var:boolean;
 
   constructor(private http : HttpClient) { }
 
   login(data){
     return this.http.post(this.host+"login",data,{observe:'response'});
+  }
+
+  logout(){
+    localStorage.removeItem('token');
+    this.jwt=null;
+    this.roles=null;
+    this.username=null;
   }
 
   saveToken(jwt: string){
@@ -45,4 +42,18 @@ export class AuthenticationService {
     this.roles= objJWT.roles;
 
   }
+
+  isAuthenticated(){
+    return this.jwt !=null;
+  }
+
+  hasRoleAdmin():  boolean{ 
+    return this.roles && this.roles.indexOf('ADMIN')>=0 ;
+  }
+
+  loadToken(){
+    this.jwt=localStorage.getItem('token');
+    this.parseJWT();
+  }
+     
 }

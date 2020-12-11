@@ -5,7 +5,8 @@
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Home</a></li>
-      <li class="dropdown">
+
+      <li class="dropdown" *ngIf="hasRoleAdmin()">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
@@ -15,11 +16,13 @@
           
         </ul>
       </li>
+
       <li><a href="#">Accueil</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a (click)=onClickLogin()><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li *ngIf="!isAuthenticated()"><a (click)=onClickLogin()><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li *ngIf="isAuthenticated()"><a (click)=onClickLogout()><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
     </ul>
   </div>
 </nav>

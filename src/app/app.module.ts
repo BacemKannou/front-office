@@ -3,11 +3,11 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProductsComponent } from './products/products.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ProductDetailsComponent } from './product-details/product-details.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule} from '@angular/forms/'
+import { ProductsComponent } from './components/products/products.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
 @NgModule({
   declarations: [
