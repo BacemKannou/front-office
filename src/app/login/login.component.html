@@ -1,0 +1,29 @@
+<div class="container-fluid">
+  <main style="padding: 10rem;">
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">Authentication</div>
+          <div class="panel-body">
+            <form #f="ngForm" (ngSubmit)="onSubmitLogin(f.value)">
+              <div class="form-group">
+                <label for="userName">User Name</label>
+                <input type="text" name="userName" ngModel class="form-control" id="userName" aria-describedby="userNameHelp"
+                  placeholder="Enter userName">
+                <small id="userNameHelp" class="form-text text-muted">We'll never share your userName with anyone else.</small>
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" ngModel class="form-control" id="password" placeholder="Password">
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<footer>
+  <p>© Company 2013</p>
+</footer>

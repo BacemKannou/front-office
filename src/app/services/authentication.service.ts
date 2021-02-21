@@ -14,6 +14,7 @@ export class AuthenticationService {
   username: string;
   roles: Array<string>;
   var:boolean;
+  redirectUrl:String;
 
   constructor(private http : HttpClient) { }
 
@@ -53,7 +54,13 @@ export class AuthenticationService {
 
   loadToken(){
     this.jwt=localStorage.getItem('token');
-    this.parseJWT();
+    if(this.jwt!=null){
+      this.parseJWT();
+    }
+  }
+
+  getBeAuthenticated(){
+    this.jwt='kannou bacem';
   }
      
 }
